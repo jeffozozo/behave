@@ -1,0 +1,19 @@
+
+name: Test Behave
+
+on:
+  push
+
+jobs:
+
+  RunBehaveTests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install chromedriver
+        uses: nanasess/setup-chromedriver@master
+      - name: Install behave
+        run: pip install behave behave-webdriver
+      - name: Run behave
+        run: behave
